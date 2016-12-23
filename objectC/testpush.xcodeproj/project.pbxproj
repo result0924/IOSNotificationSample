@@ -34,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185CFC1E1E0CE3D900237818 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		185CFC201E0CFD6F00237818 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		185CFC221E0CFDC800237818 /* testpush.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testpush.entitlements; sourceTree = "<group>"; };
 		D038FC3E18EDCB38003656A9 /* testpush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testpush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D038FC4118EDCB38003656A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D038FC4318EDCB38003656A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +104,8 @@
 		D038FC4018EDCB38003656A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				185CFC201E0CFD6F00237818 /* UserNotificationsUI.framework */,
+				185CFC1E1E0CE3D900237818 /* UserNotifications.framework */,
 				D038FC4118EDCB38003656A9 /* Foundation.framework */,
 				D038FC4318EDCB38003656A9 /* CoreGraphics.framework */,
 				D038FC4518EDCB38003656A9 /* UIKit.framework */,
@@ -112,6 +117,7 @@
 		D038FC4718EDCB38003656A9 /* testpush */ = {
 			isa = PBXGroup;
 			children = (
+				185CFC221E0CFDC800237818 /* testpush.entitlements */,
 				D038FC5018EDCB38003656A9 /* AppDelegate.h */,
 				D038FC5118EDCB38003656A9 /* AppDelegate.m */,
 				D038FC5318EDCB38003656A9 /* Main.storyboard */,
@@ -196,11 +202,17 @@
 		D038FC3618EDCB38003656A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CorePlot;
 				TargetAttributes = {
 					D038FC3D18EDCB38003656A9 = {
 						DevelopmentTeam = 9TNVAWA2VV;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					D038FC5E18EDCB38003656A9 = {
 						TestTargetID = D038FC3D18EDCB38003656A9;
@@ -379,13 +391,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = testpush/testpush.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: lai Kuan-Ting (88AVR6H986)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lai Kuan-Ting (88AVR6H986)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testpush/testpush-Prefix.pch";
 				INFOPLIST_FILE = "testpush/testpush-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.h2sync.testapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7c209b9a-d648-428b-8a3e-1dc66019777b";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -395,13 +409,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = testpush/testpush.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: H2 Inc. (9TNVAWA2VV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: H2 Inc. (9TNVAWA2VV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testpush/testpush-Prefix.pch";
 				INFOPLIST_FILE = "testpush/testpush-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.h2sync.testapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9706e32-ae3d-437a-afb3-96eed1194be5";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
